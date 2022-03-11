@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Oferta} from 'src/app/model/oferta';
+import {OfertaService} from "../../servicios/oferta.service";
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  public ofertas: Array<Oferta> = [];
+
+  constructor(private ofertaSrv: OfertaService) {
+  }
 
   ngOnInit(): void {
+    this.recuperarOfertas();
   }
+
+  /**
+   * Método que recupera las ofertas.
+   */
+  recuperarOfertas(): void {
+    this.ofertaSrv
+      .obtenerOfertas()
+      .subscribe(respuesta => {
+        this.ofertas = respuesta;
+      });
+    console.log('Ofertas recuperadas ==>' + JSON.stringify(this.ofertas));
+  }
+
 
 }

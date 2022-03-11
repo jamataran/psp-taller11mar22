@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { OfertasComponent } from './ofertas/ofertas.component';
 import { NuevaOfertaComponent } from './nueva-oferta/nueva-oferta.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ServiciosModule} from "../servicios/servicios.module";
 
 
 
@@ -21,6 +22,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ServiciosModule
   ]
 })
 export class PagesModule { }
